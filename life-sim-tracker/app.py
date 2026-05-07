@@ -25,7 +25,6 @@ table = db.Table('sim-table')
 
 def update_plot():
     try:
-        # 1. Fetch Data from DynamoDB (Same as before)
         start_time = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
         all_items = []
         for name in games.keys():
@@ -37,10 +36,8 @@ def update_plot():
 
         if not all_items: return
 
-        # 2. Format Data for QuickChart (Chart.js format)
-        # We need a list of unique timestamps for the X-axis labels
         all_items.sort(key=lambda x: x['Timestamp'])
-        # Convert ISO strings to a format Chart.js loves (HH:mm)
+
         labels = sorted(list(set(item['Timestamp'] for item in all_items)))
         short_labels = [l[11:16] for l in labels] 
 
@@ -59,11 +56,10 @@ def update_plot():
                 "fill": False,
                 "borderColor": colors.get(name, "gray"),
                 "borderWidth": 2,
-                "pointRadius": 0,    # <--- THIS REMOVES THE POINTS
-                "lineTension": 0.2   # Adds a slight smooth curve to the line
+                "pointRadius": 0,    
+                "lineTension": 0.2  
             })
 
-        # 2. Build the Chart Config
         chart_config = {
             "type": "line",
             "data": {
@@ -75,9 +71,9 @@ def update_plot():
                 "scales": {
                     "xAxes": [{
                         "ticks": {
-                            "maxRotation": 0,   # Keeps labels horizontal
-                            "autoSkip": True,   # Automatically hides labels if they crowd
-                            "maxTicksLimit": 8  # Only shows ~8 time stamps total
+                            "maxRotation": 0,   
+                            "autoSkip": True,   
+                            "maxTicksLimit": 8  
                         }
                     }]
                 }
@@ -92,7 +88,6 @@ def update_plot():
         
         try:
             if response.status_code == 200:
-                # 5. Upload the resulting binary to S3
                 s3.put_object(
                     Bucket=S3_BUCKET,
                     Key="latest_trends.png",
