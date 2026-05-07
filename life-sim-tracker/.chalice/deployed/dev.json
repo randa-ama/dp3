@@ -1,0 +1,39 @@
+{
+  "resources": [
+    {
+      "name": "periodic_ingest_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::672911155186:role/life-sim-tracker-dev-periodic_ingest",
+      "role_name": "life-sim-tracker-dev-periodic_ingest"
+    },
+    {
+      "name": "periodic_ingest",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:us-east-1:672911155186:function:life-sim-tracker-dev-periodic_ingest"
+    },
+    {
+      "name": "periodic_ingest-event",
+      "resource_type": "cloudwatch_event",
+      "rule_name": "life-sim-tracker-dev-periodic_ingest-event"
+    },
+    {
+      "name": "api_handler_role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::672911155186:role/life-sim-tracker-dev-api_handler",
+      "role_name": "life-sim-tracker-dev-api_handler"
+    },
+    {
+      "name": "api_handler",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:us-east-1:672911155186:function:life-sim-tracker-dev"
+    },
+    {
+      "name": "rest_api",
+      "resource_type": "rest_api",
+      "rest_api_id": "4da3kqr3bl",
+      "rest_api_url": "https://4da3kqr3bl.execute-api.us-east-1.amazonaws.com/api/"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
