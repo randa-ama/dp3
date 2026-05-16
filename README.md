@@ -15,13 +15,13 @@ The DynamoDB database stores 3 values for each object stored:
 - `Timestamp`: the UTC time at which the data point was ingested
 - `Count`: the number of players concurrently playing the game
 
-### API Resources
+## API Resources
 
 The API has 3 resources:
 - `/current`: returns the most recent player count values for all 3 games
 - `/trend`: returns the change in player count as compared to an hour prior
 - `/plot`: returns a plot that displays the trend in player counts for each game over the past 24 hours from the present
 
-### Extension
+## Extension
 
 I had wanted to extend the plot resource to allow for a parameter that adjusted the time frame of the plot to allow users to look at trends over longer or shorter periods of time, but unfortunately, I couldn't get it to work properly. 
