@@ -19,7 +19,7 @@ The DynamoDB database stores 3 values for each object stored:
 
 The API has 3 resources:
 - `/current`: returns the most recent player count values for all 3 games
-- `/trend/`: returns the change in player count as compared to an hour prior
+- `/trend`: returns the change in player count as compared to an hour prior
 - `/plot`: returns a plot that displays the trend in player counts for each game over the past 24 hours from the present
 
 ### Extension
