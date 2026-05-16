@@ -1,6 +1,6 @@
 # DS5220 - Data Project 3: Data Ingestion Pipeline and Integration API
 
-This project implements a data ingestion pipeline and Chalice API that ingests, processes, and displays concurrent player count data for 2 lifestyle simulation games on Steam - The Sims 4, Stardew Valley, and Heartopia.
+This project implements a data ingestion pipeline and Chalice API that ingests, processes, and displays concurrent player count data for 3 lifestyle simulation games on Steam - The Sims 4, Stardew Valley, and Heartopia.
 
 ## Motivation
 
